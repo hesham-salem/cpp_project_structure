@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/add.h
+
+../include/app.h
+iostream
+-
+fmt/core.h
+-
+add.h
+../include/add.h
+
+/home/hesham/Documents/wakeb/standard_structure/app/app.cpp
+app.h
+/home/hesham/Documents/wakeb/standard_structure/app/app.h
+

@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/calculator.bin.dir/app/app.cpp.o  -o calculator.bin  src/libadd.a /usr/lib/x86_64-linux-gnu/libfmt.a 

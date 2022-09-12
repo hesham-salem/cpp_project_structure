@@ -1,0 +1,6 @@
+/home/hesham/Documents/wakeb/standard_structure/build/CMakeFiles/rebuild_cache.dir
+/home/hesham/Documents/wakeb/standard_structure/build/CMakeFiles/edit_cache.dir
+/home/hesham/Documents/wakeb/standard_structure/build/CMakeFiles/calculator.bin.dir
+/home/hesham/Documents/wakeb/standard_structure/build/src/CMakeFiles/rebuild_cache.dir
+/home/hesham/Documents/wakeb/standard_structure/build/src/CMakeFiles/edit_cache.dir
+/home/hesham/Documents/wakeb/standard_structure/build/src/CMakeFiles/add.dir
