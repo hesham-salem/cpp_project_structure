@@ -7,6 +7,7 @@ private:
     int *b;
 
 public:
+    int *result;
     calculator(int, int);
     int add();
 

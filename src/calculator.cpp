@@ -9,7 +9,8 @@ calculator::calculator(int a, int b)
 }
 int calculator::add()
 {
-    return *a + *b;
+    *(this->result) = *a + *b;
+    return *(this->result);
 }
 
 calculator::~calculator()
