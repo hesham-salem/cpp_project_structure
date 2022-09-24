@@ -1,6 +1,8 @@
-#include "app.h"
+#include "app/app.h"
 
 int main(void)
 {
-    print("the result is :{} \n", add(5, 5));
+
+    calculator _calculator(2, 5);
+    print("the result is :{} \n", _calculator.add());
 }

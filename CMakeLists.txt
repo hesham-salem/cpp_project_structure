@@ -1,11 +1,11 @@
-cmake_minimum_required(VERSION 3.16)
-project(calculator)
+cmake_minimum_required(VERSION 3.10)
+project(calculatorX)
 
-add_executable(calculator.bin app/app.cpp)
-target_include_directories(calculator.bin PUBLIC include/)
-
+add_executable(calculatorX app/app.cpp)
+target_include_directories(calculatorX PUBLIC include/)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src)
-target_link_libraries(calculator.bin PUBLIC add)
+
+target_link_libraries(calculatorX PUBLIC calculator)
 
 find_package(fmt REQUIRED CONFIG)
-target_link_libraries(calculator.bin PUBLIC fmt::fmt)
+target_link_libraries(calculatorX PUBLIC fmt::fmt)
