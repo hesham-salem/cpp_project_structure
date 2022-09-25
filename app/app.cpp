@@ -12,5 +12,6 @@ int main(void)
         *(_calculator.result) = 80;
         print("the result is :{} \n", *(_calculator.result));
     }
+
     print("_calculator2.result : {} \n ", *(_calculator2.result));
 }

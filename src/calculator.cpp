@@ -1,31 +1,29 @@
 #include "../include/calculator/calculator.h"
-
-calculator::calculator(int a, int b)
+void calculator::init()
 {
     this->a = new int;
-    *(this->a) = a;
     this->b = new int;
-    *(this->b) = b;
     this->result = new int;
+}
+calculator::calculator(int a, int b)
+{
+    init();
+    *(this->a) = a;
+    *(this->b) = b;
 }
 calculator::calculator(calculator &other)
 {
-    this->a = new int;
-    this->b = new int;
+    init();
 
     *(this->a) = *(other.a);
     *(this->b) = *(other.b);
-    this->result = new int;
 }
 calculator &
 calculator::operator=(const calculator &other)
 {
-    this->a = new int;
-    this->b = new int;
-
+    init();
     *(this->a) = *(other.a);
     *(this->b) = *(other.b);
-    this->result = new int;
 }
 /// @brief add function
 /// @return return int value

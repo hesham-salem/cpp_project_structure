@@ -1,5 +1,5 @@
-#include <fmt/core.h>
-using namespace fmt;
+//#include <fmt/core.h>
+// using namespace fmt;
 class calculator
 {
 private:
@@ -8,6 +8,9 @@ private:
 
 public:
     int *result;
+
+    void init();
+
     calculator(int, int);
     calculator(calculator &);
     calculator &operator=(const calculator &other);
