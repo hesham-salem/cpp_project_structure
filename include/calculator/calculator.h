@@ -9,6 +9,8 @@ private:
 public:
     int *result;
     calculator(int, int);
+    calculator(calculator &);
+    calculator &operator=(const calculator &other);
     int add();
 
     ~calculator();

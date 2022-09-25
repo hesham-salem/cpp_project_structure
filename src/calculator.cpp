@@ -6,7 +6,29 @@ calculator::calculator(int a, int b)
     *(this->a) = a;
     this->b = new int;
     *(this->b) = b;
+    this->result = new int;
 }
+calculator::calculator(calculator &other)
+{
+    this->a = new int;
+    this->b = new int;
+
+    *(this->a) = *(other.a);
+    *(this->b) = *(other.b);
+    this->result = new int;
+}
+calculator &
+calculator::operator=(const calculator &other)
+{
+    this->a = new int;
+    this->b = new int;
+
+    *(this->a) = *(other.a);
+    *(this->b) = *(other.b);
+    this->result = new int;
+}
+/// @brief add function
+/// @return return int value
 int calculator::add()
 {
     *(this->result) = *a + *b;
@@ -15,5 +37,5 @@ int calculator::add()
 
 calculator::~calculator()
 {
-    print("deconstractor bye");
+    delete a, b, result;
 }
