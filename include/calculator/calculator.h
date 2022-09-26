@@ -7,13 +7,15 @@ private:
     int *b;
 
 public:
-    int *result;
+    int *result; // tee
 
     void init();
-
+    calculator() = default;
     calculator(int, int);
     calculator(calculator &);
     calculator &operator=(const calculator &other);
+    calculator(calculator &&);
+    calculator &&operator=(calculator &&);
     int add();
 
     ~calculator();
