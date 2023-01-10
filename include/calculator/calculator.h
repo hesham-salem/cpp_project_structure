@@ -1,22 +1,25 @@
-//#include <fmt/core.h>
-// using namespace fmt;
+#ifndef CALCULATOR_H
+#define CALCULATOR_H
+template <typename T>
 class calculator
 {
-private:
-    int *a;
-    int *b;
 
 public:
-    int *result; // tee
-
-    void init();
+    const float pi = 3.14;
+    T *result;
     calculator() = default;
-    calculator(int, int);
-    calculator(calculator &);
+    calculator(T, T);
+    calculator(const calculator &);
     calculator &operator=(const calculator &other);
     calculator(calculator &&);
-    calculator &&operator=(calculator &&);
-    int add();
-
+    calculator &operator=(calculator &&);
     ~calculator();
+
+    T add();
+
+private:
+    T *a;
+    T *b;
 };
+
+#endif

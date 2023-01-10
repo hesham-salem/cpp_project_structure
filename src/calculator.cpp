@@ -1,64 +1,51 @@
-#include "../include/calculator/calculator.h"
-#include <cstdio>
-
-void calculator::init()
+#include <calculator.h>
+template <typename T>
+calculator<T>::calculator(T a_, T b_) : a{new T(a_)}, b{new T(b_)}, result{new T}
 {
-    this->a = new int;
-    this->b = new int;
-    this->result = new int;
 }
-calculator::calculator(int a, int b)
+template <typename T>
+calculator<T>::calculator(const calculator &other) : calculator(*(other.a), *(other.b))
 {
-    init();
-    *(this->a) = a;
-    *(this->b) = b;
 }
-/// @warning try to avoid use it
-//
-calculator::calculator(calculator &other)
+template <typename T>
+calculator<T> &calculator<T>::operator=(const calculator<T> &other)
 {
-    init();
-
     *(this->a) = *(other.a);
     *(this->b) = *(other.b);
+    return *this;
 }
-calculator &
-calculator::operator=(const calculator &other)
+template <typename T>
+calculator<T>::calculator(calculator &&other) : a{other.a}, b{other.b}
 {
-    init();
-    *(this->a) = *(other.a);
-    *(this->b) = *(other.b);
+
+    other.a = nullptr;
+    other.b = nullptr;
 }
-calculator::calculator(calculator &&other)
+template <typename T>
+calculator<T> &calculator<T>::operator=(calculator<T> &&other)
 {
-    init();
-
-    printf("other.result %p \n", other.result);
-
     this->a = other.a;
     this->b = other.b;
     other.a = nullptr;
     other.b = nullptr;
+    return *this;
 }
-calculator &&
-calculator::operator=(calculator &&other)
+template <typename T>
+calculator<T>::~calculator()
 {
-    init();
-    this->a = other.a;
-    this->b = other.b;
-    other.a = nullptr;
-    other.b = nullptr;
+    delete a;
+    delete b;
+    delete result;
 }
+
 /// @brief add function
 /// @return return int value
 //
-int calculator::add()
+template <typename T>
+T calculator<T>::add()
 {
     *(this->result) = *a + *b;
     return *(this->result);
 }
-
-calculator::~calculator()
-{
-    delete a, b, result;
-}
+template class calculator<int>;
+template class calculator<float>;

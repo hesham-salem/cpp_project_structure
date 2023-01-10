@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/calculator/calculator.h
+
+/home/hesham/Documents/wakeb/standard_structure/src/calculator.cpp
+calculator.h
+-
+
