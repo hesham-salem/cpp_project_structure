@@ -5,7 +5,8 @@ using std::printf;
 int main(void)
 {
     // print("hello \n");
-    calculator<float> _calculator2(5, 5);
+    calculator<float> _calculator2(2, 5);
+
     //_calculator2.add();
     //  print("the result is before :{} \n", *(_calculator2.result));
 
@@ -19,7 +20,7 @@ int main(void)
 
         _calculator.add();
         //   *(_calculator.result) = 80;
-        print("the result is :{} \n", *(_calculator.result));
+        print("n the result is :{} \n", _calculator.get_result());
     }
 
     // print("_calculator2.result : {} \n ", *(_calculator2.result));
