@@ -13,6 +13,8 @@ fmt/core.h
 ../include/calculator/calculator.h
 
 ../include/calculator/calculator.h
+memory
+-
 
 /home/hesham/Documents/wakeb/standard_structure/app/app.cpp
 app.h
