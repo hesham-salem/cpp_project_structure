@@ -1,28 +1,31 @@
 #include <calculator.h>
+
 template <typename T>
-calculator<T>::calculator(T a_, T b_) : a{std::make_unique<T>(a_)}, b{std::make_unique<T>(b_)}, result{std::make_unique<T>()}
+calculator<T>::calculator() : result{std::make_unique<T>()}
 {
 }
 template <typename T>
-calculator<T>::calculator(const calculator &other) : calculator(*(other.a), *(other.b))
+calculator<T>::calculator(T result) : result{std::make_unique<T>(result)}
+{
+}
+template <typename T>
+calculator<T>::calculator(const calculator &other) : calculator(*(other.result))
 {
 }
 template <typename T>
 calculator<T> &calculator<T>::operator=(const calculator<T> &other)
 {
-    *(this->a) = *(other.a);
-    *(this->b) = *(other.b);
+    *(this->result) = *(other.result);
     return *this;
 }
 template <typename T>
-calculator<T>::calculator(calculator &&other) : a{std::move(other.a)}, b{std::move(other.b)}
+calculator<T>::calculator(calculator &&other) : result{std::move(other.result)}
 {
 }
 template <typename T>
 calculator<T> &calculator<T>::operator=(calculator<T> &&other)
 {
-    a = std::move(other.a);
-    b = std::move(other.b);
+    result = std::move(other.result);
     return *this;
 }
 template <typename T>
@@ -34,9 +37,9 @@ calculator<T>::~calculator()
 /// @return return int value
 //
 template <typename T>
-T calculator<T>::add()
+T calculator<T>::add(T a, T b)
 {
-    *(this->result) = *a + *b;
+    *(this->result) = a + b;
     return *(this->result);
 }
 

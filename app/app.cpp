@@ -2,26 +2,11 @@
 using fmt::print;
 using std::printf;
 #include <vector>
-int main(void)
+
+int main(int argc, char **argv)
 {
-    // print("hello \n");
-    calculator<float> _calculator2(2, 5);
-
-    //_calculator2.add();
-    //  print("the result is before :{} \n", *(_calculator2.result));
-
+    while (1)
     {
-        calculator<float> _calculator(1, 2);
-        //   auto _calculator3 = _calculator = _calculator2;
-        //  printf(" app other.result %p \n", _calculator2.result);
-
-        //   calculator _calculator(std::move(_calculator2));
-        //_calculator3.add();
-
-        _calculator.add();
-        //   *(_calculator.result) = 80;
-        print("n the result is :{} \n", _calculator.get_result());
+        print("hello update \n");
     }
-
-    // print("_calculator2.result : {} \n ", *(_calculator2.result));
 }

@@ -8,23 +8,26 @@ class calculator
 public:
     const float pi = 3.14;
 
-    calculator() = default;
-    calculator(T, T);
+    calculator();
+    calculator(T);
     calculator(const calculator &);
     calculator &operator=(const calculator &other);
-    calculator(calculator &&);
-    calculator &operator=(calculator &&);
+    calculator(calculator &&other);
+    calculator &operator=(calculator &&otheer);
     ~calculator();
 
-    T add();
+    T add(T first_no, T second_no);
     inline T get_result() const
     {
         return *result;
     }
+    inline T get_last_operation_value() const
+    {
+        return *last_operation_value;
+    }
 
 private:
-    std::unique_ptr<T> a{};
-    std::unique_ptr<T> b;
+    std::unique_ptr<T> last_operation_value;
     std::unique_ptr<T> result;
 };
 
