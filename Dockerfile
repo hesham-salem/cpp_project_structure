@@ -14,5 +14,4 @@ RUN cd /usr/src &&\
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 #ENTRYPOINT [ "/bin/bash" ]
 VOLUME /app
-
 #CMD ["c"]
