@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/calculatorX.dir/app/app.cpp.o  -o calculatorX  src/libcalculator.a /usr/lib/x86_64-linux-gnu/libfmt.a /usr/lib/x86_64-linux-gnu/libfmt.a 
