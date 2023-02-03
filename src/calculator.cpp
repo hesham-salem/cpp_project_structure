@@ -39,9 +39,17 @@ calculator<T>::~calculator()
 template <typename T>
 T calculator<T>::add(T a, T b)
 {
-    *(this->result) = a + b;
-    return *(this->result);
+    return *(this->result) = a + b;
 }
+template <typename T>
+T calculator<T>::product(T a, T b)
+{
+    if ((a == 0) || (b == 0))
+    {
+        throw std::invalid_argument("one of two arguments is zero");
+    }
 
+    return *(this->result) = a * b;
+}
 template class calculator<int>;
 template class calculator<float>;

@@ -1,6 +1,7 @@
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 #include <memory>
+#include <stdexcept>
 template <typename T>
 class calculator
 {
@@ -17,6 +18,7 @@ public:
     ~calculator();
 
     T add(T first_no, T second_no);
+    T product(T first_no, T second_no);
     inline T get_result() const
     {
         return *result;
