@@ -1,30 +1,37 @@
 #include "calculator/calculator.h"
 #include <gtest/gtest.h>
-TEST(add_test, add_postive_numbers)
+
+class add_test : public ::testing::Test
 {
+
+public:
     calculator<float> _calculator;
+    void SetUp() override
+    {
+        // add config here
+    }
+};
+
+TEST_F(add_test, add_postive_numbers)
+{
     EXPECT_EQ(_calculator.add(2, 5), 7);
 }
-TEST(add_test, add_negative_numbers)
+TEST_F(add_test, add_negative_numbers)
 {
-    calculator<float> _calculator;
     EXPECT_EQ(_calculator.add(-2, -5), -7);
 }
-TEST(add_test, zeros_input)
+TEST_F(add_test, zeros_input)
 {
-    calculator<float> _calculator;
     EXPECT_EQ(_calculator.add(0, 0), 0);
 }
-TEST(add_test, positive_no_and_negative_no)
+TEST_F(add_test, positive_no_and_negative_no)
 {
-    calculator<float> _calculator;
 
     EXPECT_EQ(_calculator.add(-2, 5), 3);
     EXPECT_EQ(_calculator.add(2, -5), -3);
 }
-TEST(add_test, positive_no_and_zero)
+TEST_F(add_test, positive_no_and_zero)
 {
-    calculator<float> _calculator;
 
     EXPECT_EQ(_calculator.add(-2, 0), -2);
     EXPECT_EQ(_calculator.add(0, -5), -5);
