@@ -51,5 +51,11 @@ T calculator<T>::product(T a, T b)
 
     return *(this->result) = a * b;
 }
+template <typename T>
+T calculator<T>::specify_operation(T first_no, T second_no, std::function<T(T, T)> const &func)
+{
+    return *(this->result) = func(first_no, second_no);
+}
+
 template class calculator<int>;
 template class calculator<float>;

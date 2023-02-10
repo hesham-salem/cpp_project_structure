@@ -2,6 +2,7 @@
 #define CALCULATOR_H
 #include <memory>
 #include <stdexcept>
+#include <functional>
 template <typename T>
 class calculator
 {
@@ -19,6 +20,7 @@ public:
 
     T add(T first_no, T second_no);
     T product(T first_no, T second_no);
+    T specify_operation(T first_no, T second_no, std::function<T(T, T)> const &func);
     inline T get_result() const
     {
         return *result;
