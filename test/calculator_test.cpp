@@ -1,6 +1,8 @@
 #include "calculator/calculator.h"
 #include <gtest/gtest.h>
 
+using type = calculator<int>;
+
 class add_test : public ::testing::Test
 {
 
@@ -35,6 +37,10 @@ TEST_F(add_test, positive_no_and_zero)
 
     EXPECT_EQ(_calculator.add(-2, 0), -2);
     EXPECT_EQ(_calculator.add(0, -5), -5);
+}
+TEST_F(add_test, initializer_list)
+{
+    EXPECT_EQ(_calculator.add({1, 2, 3, 4, 5}), 15);
 }
 TEST(product_test, product_non_zero)
 {
@@ -97,6 +103,29 @@ TEST(specify_operation_, functor)
     add _add;
     EXPECT_EQ(_calculator.specify_operation(2, 2, _add), 4);
 }
+TEST(test_calculator_base, rest_result)
+{
+    calculator<int> _calculator;
+    _calculator.add(1, 2);
+    EXPECT_EQ(_calculator.get_result(), 3);
+
+    _calculator.reset_result();
+    EXPECT_EQ(_calculator.get_result(), 0);
+}
+void calculator_reset(calculator_base &calc)
+{
+    calc.reset_result();
+}
+TEST(test_calculator_base, using_interface)
+
+{
+    calculator<int> _calculator;
+    _calculator.add(1, 2);
+    EXPECT_EQ(_calculator.get_result(), 3);
+    calculator_reset(_calculator);
+    EXPECT_EQ(_calculator.get_result(), 0);
+}
+
 int main(int argc, char **argv)
 {
 

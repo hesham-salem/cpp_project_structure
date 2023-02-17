@@ -42,6 +42,17 @@ T calculator<T>::add(T a, T b)
     return *(this->result) = a + b;
 }
 template <typename T>
+T calculator<T>::add(std::initializer_list<T> const &list)
+{
+    auto sum = 0;
+    for (const auto &i : list)
+    {
+        sum += i;
+    }
+    return *(this->result) = sum;
+}
+
+template <typename T>
 T calculator<T>::product(T a, T b)
 {
     if ((a == 0) || (b == 0))

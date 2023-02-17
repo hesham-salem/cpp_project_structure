@@ -3,15 +3,23 @@
 #include <memory>
 #include <stdexcept>
 #include <functional>
+
+class calculator_base
+{
+public:
+    virtual void reset_result() = 0;
+    ~calculator_base() = default;
+};
+
 template <typename T>
-class calculator
+class calculator : public calculator_base
 {
 
 public:
     const float pi = 3.14;
 
     calculator();
-    calculator(T);
+    explicit calculator(T);
     calculator(const calculator &);
     calculator &operator=(const calculator &other);
     calculator(calculator &&other);
@@ -19,6 +27,8 @@ public:
     ~calculator();
 
     T add(T first_no, T second_no);
+    T add(std::initializer_list<T> const &list);
+
     T product(T first_no, T second_no);
     T specify_operation(T first_no, T second_no, std::function<T(T, T)> const &func);
     inline T get_result() const
@@ -28,6 +38,10 @@ public:
     inline T get_last_operation_value() const
     {
         return *last_operation_value;
+    }
+    inline void reset_result() override
+    {
+        *result = 0;
     }
 
 private:
