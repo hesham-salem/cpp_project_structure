@@ -3,6 +3,17 @@
 #include <memory>
 #include <stdexcept>
 #include <functional>
+#include <fstream>
+class storage
+{
+public:
+    void save(int result)
+    {
+        std::ofstream file("data.txt");
+
+        file << result;
+    }
+};
 
 class calculator_base
 {
@@ -31,6 +42,7 @@ public:
 
     T product(T first_no, T second_no);
     T specify_operation(T first_no, T second_no, std::function<T(T, T)> const &func);
+    void save_result();
     inline T get_result() const
     {
         return *result;
@@ -45,6 +57,7 @@ public:
     }
 
 private:
+    storage _storge;
     std::unique_ptr<T> last_operation_value;
     std::unique_ptr<T> result;
 };

@@ -2,16 +2,22 @@
 #include <gtest/gtest.h>
 
 using type = calculator<int>;
+calculator<int> _calculator;
 
 class add_test : public ::testing::Test
 {
-
 public:
-    calculator<float> _calculator;
     void SetUp() override
     {
-        // add config here//
+        std::cout << "hello form constructor " << std::endl;
     }
+    void TearDown() override
+    {
+        std::cout << "hello form deconstuctor " << std::endl;
+    }
+
+protected:
+    calculator<float> _calculator;
 };
 
 TEST_F(add_test, add_postive_numbers)
@@ -124,6 +130,11 @@ TEST(test_calculator_base, using_interface)
     EXPECT_EQ(_calculator.get_result(), 3);
     calculator_reset(_calculator);
     EXPECT_EQ(_calculator.get_result(), 0);
+}
+TEST(storage_result, storage_result)
+{
+    _calculator.add(7, 5);
+    _calculator.save_result();
 }
 
 int main(int argc, char **argv)

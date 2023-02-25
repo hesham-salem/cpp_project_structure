@@ -11,6 +11,6 @@ RUN cd /usr/src &&\
     make  && \
     make install 
 
-#ENTRYPOINT ["tail", "-f", "/dev/null"]
-ENTRYPOINT [ "/bin/bash" ]
-VOLUME /app
+ENTRYPOINT ["tail", "-f", "/dev/null"]
+#ENTRYPOINT [ "/bin/bash" ]
+#VOLUME /app

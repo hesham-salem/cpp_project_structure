@@ -67,6 +67,11 @@ T calculator<T>::specify_operation(T first_no, T second_no, std::function<T(T, T
 {
     return *(this->result) = func(first_no, second_no);
 }
+template <typename T>
+void calculator<T>::save_result()
+{
+    _storge.save(*(this->result));
+}
 
 template class calculator<int>;
 template class calculator<float>;
