@@ -1,19 +1,12 @@
 version: '3'
 services:
-  calculator:
-    build: .
+  calculator_server:
+    build: server/
     volumes:
-      - .:/app
+      - ./server:/server
     ports:
-      - "8040:8040"
-  ros_humble:
-    build:
-      context: ./ros
-      dockerfile: Dockerfile
-    environment:
-      - DISPLAY=$DISPLAY
-      - XAUTHORITY=$XAUTHORITY
+      - "1234:4080"
+  client:
+    build: client/
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - $HOME/.Xauthority:/root/.Xauthority
-    privileged: true
+      - ./client:/client

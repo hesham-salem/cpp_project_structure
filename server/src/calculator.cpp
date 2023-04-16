@@ -19,13 +19,13 @@ calculator<T> &calculator<T>::operator=(const calculator<T> &other)
     return *this;
 }
 template <typename T>
-calculator<T>::calculator(calculator &&other) : result{std::move(other.result)}
+calculator<T>::calculator(calculator &&other) : result{move(other.result)}
 {
 }
 template <typename T>
 calculator<T> &calculator<T>::operator=(calculator<T> &&other)
 {
-    result = std::move(other.result);
+    result = move(other.result);
     return *this;
 }
 template <typename T>

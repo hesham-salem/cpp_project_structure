@@ -1,16 +1,17 @@
 FROM rikorose/gcc-cmake
-WORKDIR /app
+#WORKDIR /server
 RUN apt-get update
-RUN apt-get install libfmt-dev -y
-RUN cd /usr/src &&\
-    git clone https://github.com/google/googletest && \
+#RUN apt-get install libfmt-dev  \
+#   libboost-all-dev -y
+WORKDIR /usr/src 
+RUN    git clone https://github.com/google/googletest && \
     cd googletest  && \
     mkdir build && \
     cd build  && \
     cmake ..  && \
     make  && \
     make install 
-
+WORKDIR /server
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 #ENTRYPOINT [ "/bin/bash" ]
 #VOLUME /app
