@@ -21,7 +21,7 @@ struct calculation
 {
     float firstNo;
     float secondNo;
-    char operator_;
+    std::string operator_;
     template <class Archive>
     void serialize(Archive &ar, const unsigned int version)
     {
@@ -61,7 +61,7 @@ int main()
     boost::asio::ip::tcp::resolver resolver(io_context);
 
     // Resolve the hostname to an endpoint
-    auto endpoints = resolver.resolve("calculator_server", "1234");
+    auto endpoints = resolver.resolve("localhost", "1234");
 
     // Bind the acceptor to the first endpoint in the list
     boost::asio::ip::tcp::endpoint endpoint = *endpoints.begin();
@@ -84,15 +84,18 @@ int main()
         // Deserialize the data
         calculation _calculation;
         deSerialize(serialized_data, _calculation);
-        switch (_calculation.operator_)
+        if (_calculation.operator_=="+")
         {
-        case '+':
+
             _calculator.add(_calculation.firstNo, _calculation.secondNo);
-            break;
-        case '*':
-            _calculator.product(_calculation.firstNo, _calculation.secondNo);
-            break;
-                }
+          }
+          else if (_calculation.operator_=="*")
+        {
+
+ _calculator.product(_calculation.firstNo, _calculation.secondNo);
+          }
+           
+               
 
         sum _sum = {_calculator.get_result()};
 
